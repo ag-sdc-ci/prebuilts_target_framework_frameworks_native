@@ -150,7 +150,8 @@ cc_library_headers {
 
 filegroup {
     name: "framework_native_aidl_binder",
-    srcs: [],
+    srcs: ["aidl/binder/**/*.aidl"],
+    path: "aidl/binder",
 }
 
 filegroup {
@@ -167,9 +168,19 @@ filegroup {
     ],
 }
 
+aidl_library {
+    name: "PersistableBundle_aidl",
+    hdrs: ["aidl/binder/android/os/PersistableBundle.aidl"],
+    strip_import_prefix: "aidl/binder",
+}
+
 filegroup {
     name: "guiconstants_aidl",
-    srcs: ["aidl-gen/guiconstants/**/*.java"],
+    srcs: [
+        "aidl-gen/guiconstants/android/gui/DropInputMode.java",
+        "aidl-gen/guiconstants/android/gui/StalledTransactionInfo.java",
+        "aidl-gen/guiconstants/android/gui/TouchOcclusionMode.java",
+    ],
     path: "aidl-gen/guiconstants",
 }
 
